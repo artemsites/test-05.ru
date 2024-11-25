@@ -200,11 +200,9 @@
       for (const clipboardItem of clipboardItems) {
         const types = clipboardItem.types
         for (const type of types) {
-          if (type === 'text/html') {
-            const blob = await clipboardItem.getType(type)
-            const htmlText = await blob.text()
-            htmlContent.value += htmlText
-          }
+          const blob = await clipboardItem.getType(type)
+          const htmlText = await blob.text()
+          htmlContent.value += htmlText
         }
       }
     } catch (err) {
